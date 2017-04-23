@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-5.0.dtd">
+<hibernate-configuration>  
+    <session-factory>  
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>  
+        <property name="hibernate.connection.password">root</property>  
+        <property name="hibernate.connection.url">
+<!--         	jdbc:mysql://localhost:3306/hibernate -->
+        	<![CDATA[jdbc:mysql://localhost:3306/hibernate?useUnicode=true&characterEncoding=utf8]]>
+        </property>  
+        <property name="hibernate.connection.username">root</property>  
+<!--         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>   -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>  
+        <property name="show_sql">true</property>  
+        <!-- 独立线程运行，如果通过getCurrentSession()来获得Session，需要设置如下 -->  
+        <property name="current_session_context_class">thread</property>  
+<!--         <property name="hibernate.hbm2ddl.auto">create</property> -->
+         <!-- 映射持久化类 -->  
+          
+<!--           单向一对多 -->
+<!--         <mapping class="cn.serup.model.onesided.one2many.Company"/>   -->
+<!--         <mapping class="cn.serup.model.onesided.one2many.Organization"/> -->
+<!--         双向一对多 -->
+<!--        <mapping class="cn.serup.model.twosided.one2many.Company"/>   -->
+<!--        <mapping class="cn.serup.model.twosided.one2many.Organization"/> -->
+       
+<!--           单向多对多 --> 
+<!--        <mapping class="cn.serup.model.onesided.many2many.User"/>   -->
+<!--        <mapping class="cn.serup.model.onesided.many2many.Role"/>    -->
+
+       <!--           双向多对多 --> 
+       <mapping class="cn.serup.model.twosided.many2many.User"/>  
+       <mapping class="cn.serup.model.twosided.many2many.Role"/>   
+  
+          
+    </session-factory>  
+</hibernate-configuration> 
